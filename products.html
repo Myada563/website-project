@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منتجات الشركة</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('ima/صوره.jpg'); 
+            background-size: cover; /* تغطي الشاشة بالكامل */
+            background-position: center; /* توسيط الخلفية */
+            background-repeat: no-repeat; /* عدم تكرار الصورة */
+            background-attachment: fixed; /* الصورة ثابتة أثناء التمرير */
+            color: #fff; /* لون النص */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* طبقة شفافة فوق الصورة */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* طبقة شفافة */
+            z-index: -1; /* خلف المحتوى */
+        }
+
+        /* استعلامات الوسائط للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 50px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-size: auto; /* منع التشوه على الشاشات الصغيرة جدًا */
+            }
+        }
+        /* تنسيق بطاقات المنتجات */
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* تأثير التحويم على بطاقات المنتجات */
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(124, 218, 124, 0.2);
+        }
+
+        /* تنسيق الزر */
+        .add-to-cart-btn {
+            width: 100%;
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+        }
+        .nav-link:hover {
+            color: #693131 !important;
+            transition: color 0.3s;
+        }
+        /* شريط التنقل */
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-brand, .nav-link {
+            color: rgb(81, 131, 76) !important;
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            background-color: rgb(72, 133, 85);
+        }
+
+        /* سلة التسوق */
+        #cart {
+            border-top: 2px solid #28a745;
+            padding-top: 20px;
+            direction: rtl; 
+            text-align: right;
+        }
+
+        #cart-items .list-group-item {
+            background-color: #f8f9fa;
+        }
+
+        #cart-total {
+            margin-top: 20px;
+            font-weight: bold;
+            direction: rtl; 
+            text-align: right;
+        }
+        .card-title{
+            color: #62a559;
+            direction: rtl; 
+            text-align: right;
+        }
+        .card-text{
+            direction: rtl; 
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+<!-- شريط التنقل -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d5d8d3;">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">شركة  ارض الخير</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">تواصل معنا</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.html">المنتجات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="services.html">خدماتنا</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">عن الشركة</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">الرئيسية</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- قسم المنتجات -->
+ 
+<section id="products" class="py-5">
+    <div class="container">
+        <div class="row">
+
+            <!-- بطاقة منتج 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card h-100">
+                    <img src="ima/جرار.jpg" class="card-img-top" alt="جرار زراعي">
+                    <div class="card-body">
+                        <h5 class="card-title">جرار زراعي</h5>
+                        <p class="card-text">جرار عالي الأداء مناسب لمختلف الأنشطة الزراعية. السعر: 50,000$</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="جرار زراعي" data-price="50000">إضافة إلى سلة التسوق</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بطاقة منتج 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card h-100">
+                    <img src="ima/حصاده.jpg" class="card-img-top" alt="حصادة زراعية">
+                    <div class="card-body">
+                        <h5 class="card-title">حصادة زراعية</h5>
+                        <p class="card-text">حصادة قوية لحصاد الحقول بسهولة. السعر: 75,000$</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="حصادة زراعية" data-price="75000">إضافة إلى سلة التسوق</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بطاقة منتج 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card h-100">
+                    <img src="ima/محراث.jpg" class="card-img-top" alt="محراث">
+                    <div class="card-body">
+                        <h5 class="card-title">محراث</h5>
+                        <p class="card-text">محراث قوي لتحضير التربة للزراعة. السعر: 15,000$</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="محراث" data-price="15000">إضافة إلى سلة التسوق</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بطاقة منتج 4 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card h-100">
+                    <img src="ima/رش.jpg" class="card-img-top" alt="آلة رش مبيدات">
+                    <div class="card-body">
+                        <h5 class="card-title">آلة رش مبيدات</h5>
+                        <p class="card-text">آلة رش مبيدات عالية الكفاءة. السعر: 8,000$</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="آلة رش مبيدات" data-price="8000">إضافة إلى سلة التسوق</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بطاقة منتج 5 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card h-100">
+                    <img src="ima/اله بذر.png" class="card-img-top" alt="آلة بذر">
+                    <div class="card-body">
+                        <h5 class="card-title">آلة بذر</h5>
+                        <p class="card-text">آلة بذر للبذور عالية الأداء. السعر: 20,000$</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="آلة بذر" data-price="20000">إضافة إلى سلة التسوق</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بطاقة منتج 6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card h-100">
+                    <img src="ima/الاسمده.jpg" class="card-img-top" alt="آلة توزيع الأسمدة">
+                    <div class="card-body">
+                        <h5 class="card-title">آلة توزيع الأسمدة</h5>
+                        <p class="card-text">آلة توزيع أسمدة دقيقة وفعالة. السعر: 12,000$</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="آلة توزيع الأسمدة" data-price="12000">إضافة إلى سلة التسوق</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بطاقة منتج 7 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card h-100">
+                    <img src="ima/مضخه.jpg" class="card-img-top" alt="مضخة مياه">
+                    <div class="card-body">
+                        <h5 class="card-title">مضخة مياه</h5>
+                        <p class="card-text">مضخة مياه قوية زاتيه الضغط . السعر: 5,000$</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="مضخة مياه" data-price="5000">إضافة إلى سلة التسوق</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بطاقة منتج 8 -->
+            <div class="col-md-4 mb-4">
+                <div class="card product-card h-100">
+                    <img src="ima/نظام ري.jpg" class="card-img-top" alt="نظام ري">
+                    <div class="card-body">
+                        <h5 class="card-title">نظام ري</h5>
+                        <p class="card-text">نظام ري سهل التركيب . السعر: 30,000$</p>
+                        <button class="btn btn-primary add-to-cart-btn" data-product="نظام ري" data-price="30000">إضافة إلى سلة التسوق</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- سلة التسوق -->
+<div id="cart" class="container my-4">
+    <h4>سلة التسوق:</h4>
+    <ul id="cart-items" class="list-group">
+        <!-- سيتم إضافة المنتجات هنا بواسطة JavaScript -->
+    </ul>
+    <p id="cart-total">المجموع الكلي: 0$</p>
+</div>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const cartItems = [];
+    let total = 0;
+
+    // التعامل مع زر إضافة المنتج إلى سلة التسوق
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const product = this.getAttribute('data-product');
+            const price = parseFloat(this.getAttribute('data-price'));
+
+            // إضافة المنتج إلى المصفوفة
+            cartItems.push({ product, price });
+            total += price;
+            updateCart();
+        });
+    });
+
+    // تحديث سلة التسوق
+    function updateCart() {
+        const cartList = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        
+        // مسح القائمة الحالية
+        cartList.innerHTML = '';
+        
+        // إضافة المنتجات الجديدة
+        cartItems.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('list-group-item');
+            listItem.textContent = `${item.product} - ${item.price}$`;
+            cartList.appendChild(listItem);
+        });
+        
+        // تحديث المجموع الكلي
+        cartTotal.textContent = `المجموع الكلي: ${total}$`;
+    }
+</script>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-dark text-light mt-5">
+        <div class="container p-4">
+            <!-- Links -->
+            <div class="row">
+                <!-- About section -->
+                <div class="col-lg-6 col-md-6 mb-4 mb-md-0 text-end">
+                    <h5 class="text-uppercase">عن الشركة</h5>
+                    <p>
+                     نحن شركة رائدة في مجال المعدات الزراعية
+                    </p>
+                    <p>
+                        نقدم حلول متكاملة للمزارعين لتحقيق الاستدامة الزراعيه
+                    </p>
+                </div>
+
+            <!-- Contact section -->
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0 text-end">
+                <h5 class="text-uppercase">تواصل معنا</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2 d-flex justify-content-end align-items-center">
+                        <span style="margin-left: 10px;">شارع الزراعة، المملكة العربية السعودية، المدينة المنورة</span>
+                        <i class="bi bi-geo-alt-fill" style="color: #fa0b0b; margin-right: 10px;"></i>
+                    </li>
+                    <li class="mb-2 d-flex justify-content-end align-items-center">
+                        <span style="margin-left: 10px;">0965656832</span>
+                        <i class="bi bi-telephone-fill" style="color: #28a745; margin-right: 10px;"></i>
+                    </li>
+                    <li class="d-flex justify-content-end align-items-center">
+                        <span style="margin-left: 10px;">myadahassan566@gmail.com</span>
+                        <i class="bi bi-envelope-fill" style="color: #1583dd; margin-right: 10px;"></i>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
